@@ -1,11 +1,12 @@
 <?php
 require_once('Monstre.php');
-
+require_once('Sort.php');
 class Joueur {
     private string $pseudo;
     private int $ptsVie = 30;
     private int $ptsMana = 10;
     private array $monstresPlace = array();
+    private array $main=array();
  
     public function __construct($pseudo){
         $this->pseudo = $pseudo;
@@ -32,8 +33,13 @@ class Joueur {
         }
         return 'Joueur : '. $this->pseudo .PHP_EOL. $str;
     }
-    
-}
+    public function montrerMain(){
+            return $this->main;
+    }
+        public function piocher($sort){
+         array_push($this->main,$sort=new Sort());
+    }
+        }
 
 $monstre1=new Monstre(1,9,4);
 $monstre2=new Monstre(2,8,3);
@@ -50,3 +56,9 @@ $joueur2->placerMonstre($monstre3);
  var_dump($joueur2);
  echo $joueur1->__toString();
  echo $joueur2->__toString();
+
+ $sort1=new Sort();
+ $sort2=new Sort();
+ $joueur1->piocher($sort1);
+ $joueur1->piocher($sort2);
+ print_r( $joueur1);

@@ -1,24 +1,17 @@
 <?php
 require_once('Carte.php');
-require("DamageableInterface.php");
-
-class Sort extends Carte implements  DamageableInterface{
 
 
-   public function __construct(int $coutMana,int $nbDegat){
+class Sort extends Carte {
 
-      parent::__construct($coutMana,$nbDegat);
+
+   public function __construct(){
+
+      parent::__construct();
      
   
 }
-public function  takeDamages(int $n):int{
-   if($n<$this->ptsVie){
-      return $this->ptsVie-=$n;
-   }else {
-      return 0;
-   }
-   
- }
+
 
  public function attaquer(DamageableInterface $monstre){
 
