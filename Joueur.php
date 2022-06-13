@@ -15,7 +15,15 @@ class Joueur {
     public function getMonstresPlace(){
         return $this->monstresPlace;
     }
- 
+    public function getPtsVie(){
+        return $this->ptsVie;
+    }
+    public function getPseudo(){
+        return $this->pseudo;
+    }
+    public function getPointMana(){
+        return $this->ptsMana;
+    }
     public function placerMonstre(Monstre $monstre){
  
         while( count($this->monstresPlace)  < 5 ){
@@ -41,43 +49,47 @@ class Joueur {
     }
     public function jouer(Joueur $joueur,int $i){
                 foreach($this->main as $key => $sort){
-                    if ($key==$i){
+                    if ($key==$i && $this->ptsMana>=$sort->getCoutMana()){
                             $joueur->ptsVie-=$sort->getPtsDegats();
-                           
-                    } unset($this->main[$i]);
+                            $this->ptsMana-=$sort->getCoutMana();
+                            unset($this->main[$i]);
+                    } 
 
-                } $this->ptsMana-=$sort->getCoutMana();
+                } 
+                    
+                }
+                
     }
-        }
+        
 
-// $monstre1=new Monstre(1,9,4);
-// $monstre2=new Monstre(2,8,3);
-// $monstre3=new Monstre(3,7,2);
+// // $monstre1=new Monstre(1,9,4);
+// // $monstre2=new Monstre(2,8,3);
+// // $monstre3=new Monstre(3,7,2);
 
-$joueur1=new Joueur("med");
-$joueur2=new Joueur("samar");
+// $joueur1=new Joueur("med");
+// $joueur2=new Joueur("samar");
 
-// $joueur1->placerMonstre($monstre1);
-// $joueur1->placerMonstre($monstre2);
-// $joueur2->placerMonstre($monstre3);
+// // $joueur1->placerMonstre($monstre1);
+// // $joueur1->placerMonstre($monstre2);
+// // $joueur2->placerMonstre($monstre3);
 
-//  var_dump($joueur1)."<br>";
-//  var_dump($joueur2);
-//  echo $joueur1->__toString();
-//  echo $joueur2->__toString();
+// //  var_dump($joueur1)."<br>";
+// //  var_dump($joueur2);
+// //  echo $joueur1->__toString();
+// //  echo $joueur2->__toString();
 
- $sort1=new Sort();
- print_r($sort1);
- $joueur1->montrerMain();
+//  $sort1=new Sort();
+//  print_r($sort1);
+//  $joueur1->montrerMain();
 
-$sort2=new Sort();
-$sort3=new Sort();
-//  print_r($sort2);
- $joueur1->piocher($sort1);
- $joueur1->piocher($sort2);
- print_r( $joueur1);
+// $sort2=new Sort();
+// $sort3=new Sort();
+// //  print_r($sort2);
+//  $joueur1->piocher($sort1);
+//  $joueur1->piocher($sort2);
+//  print_r( $joueur1);
 
- $joueur1->jouer($joueur2,0);
+//  $joueur1->jouer($joueur2,0);
 
- print_r( $joueur2);
- print_r( $joueur1);
+//  print_r( $joueur2);
+//  print_r( $joueur1);
