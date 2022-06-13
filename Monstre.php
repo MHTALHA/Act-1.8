@@ -49,11 +49,11 @@ public function  takeDamages(int $n):int{
 }
 
 
- $monstre1 = new Monstre();
- $monstre2 = new Monstre();
+//  $monstre1 = new Monstre();
+//  $monstre2 = new Monstre();
 
 
- $monstre2->attaquer($monstre1).PHP_EOL;
+//  $monstre2->attaquer($monstre1).PHP_EOL;
 
- print_r(var_dump($monstre1));
- print_r(var_dump($monstre2));
+//  print_r(var_dump($monstre1));
+//  print_r(var_dump($monstre2));
